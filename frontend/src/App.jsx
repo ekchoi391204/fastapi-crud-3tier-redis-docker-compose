@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { api, clearSessionToken, setSessionToken } from './api';
 
+const FRONT_VERSION = '1.0.0';
+
 function AuthCard({ mode }) {
   const navigate = useNavigate();
   const isRegister = mode === 'register';
@@ -155,7 +157,7 @@ function Dashboard() {
 
   return (
     <div className="shell">
-      <header className="topbar"><div className="topbar-inner"><div className="brand"><span className="brand-mark">C</span>CRUD System</div><div className="nav-right"><span className="version">Version {meta.version || '1.0.0'}</span><span className="avatar">{account?.username?.[0]?.toUpperCase() || 'A'}</span><button className="btn secondary" onClick={logout}>로그아웃</button></div></div></header>
+      <header className="topbar"><div className="topbar-inner"><div className="brand"><span className="brand-mark">C</span>CRUD System</div><div className="nav-right"><span className="version">Front {FRONT_VERSION} · API {meta.version || '-'}</span><span className="avatar">{account?.username?.[0]?.toUpperCase() || 'A'}</span><button className="btn secondary" onClick={logout}>로그아웃</button></div></div></header>
       <main className="content">
         <section className="hero"><p>REACT · FASTAPI · MYSQL 8.0</p><h1>{account?.username || '관리자'}님, 안녕하세요</h1><span>사용자 데이터를 한 곳에서 편리하게 관리하세요.</span></section>
         <section className="panel">

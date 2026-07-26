@@ -7,6 +7,7 @@ from sqlalchemy.engine import URL
 class Settings(BaseSettings):
     app_name: str = "CRUD System"
     app_version: str = "1.0.0"
+    server_name: str = "api-svc"
     server_ip: str = ""
     access_token_expire_minutes: int = 60
     cors_origins: str = "http://localhost:5173,http://localhost:8080"
